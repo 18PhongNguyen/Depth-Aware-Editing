@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Data & Depth-Aware Editing | Group 7</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.95)), url('https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        img {
+            transition: transform 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans antialiased">
+
+    <nav class="fixed w-full z-50 bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-lg border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-bold text-xl gradient-text">DepthAware BigData</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#deglad" class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium">DeGLaD</a>
+                        <a href="#featglac" class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium">FeatGLaC</a>
+                        <a href="#architecture" class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium">Kiến trúc Spark</a>
+                        <a href="#data-results" class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium">Thực nghiệm</a>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <a href="https://github.com/18PhongNguyen/big-data" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium transition duration-300">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                    <a href="https://www.kaggle.com/code/phongnguyen18/big-data-final" target="_blank" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-full text-sm font-medium transition duration-300">
+                        <i class="fab fa-kaggle mr-2"></i> Kaggle
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-bg h-screen flex items-center justify-center">
+        <div class="text-center px-4 sm:px-6 lg:px-8 max-w-5xl">
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+                Xử Lý Dữ Liệu Lớn Với <br>
+                <span class="gradient-text">Kỹ Thuật Nhận Thức Độ Sâu</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-300">
+                Giải pháp chỉnh sửa ảnh Zero-Shot sử dụng Diffusion Models và xử lý song song trên nền tảng PySpark.
+            </p>
+            <div class="mt-10 flex justify-center gap-4">
+                <a href="#deglad" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 transition">
+                    Khám phá Thuật Toán
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <section id="deglad" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 border-l-4 border-blue-500 pl-4">
+                <h2 class="text-3xl font-extrabold text-white">1. DeGLaD: Depth-Guided Layer Decomposition</h2>
+                <p class="mt-2 text-gray-400">Phân rã lớp hướng dẫn bởi độ sâu, tách biệt tiền cảnh và hậu cảnh dựa trên hình học 3D.</p>
+            </div>
+
+            <div class="space-y-12">
+                <div class="glass-card p-6 rounded-xl max-w-6xl mx-auto">
+                    <img src="images/1.png" alt="Sơ đồ khối DeGLaD" class="w-full rounded-lg shadow-lg">
+                    <p class="text-center text-sm text-gray-500 mt-3">Hình 1: Luồng xử lý tổng quát của DeGLaD với ngưỡng độ sâu (d)</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl max-w-5xl mx-auto">
+                    <img src="images/2.png" alt="Chi tiết quá trình Inversion" class="w-full rounded-lg shadow-lg">
+                    <p class="text-center text-sm text-gray-500 mt-3">Hình 2: Kiến trúc Image Inversion và tạo Mask từ Vision Transformer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="featglac" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 border-l-4 border-purple-500 pl-4">
+                <h2 class="text-3xl font-extrabold text-white">2. FeatGLaC: Feature-Guided Layer Composition</h2>
+                <p class="mt-2 text-gray-400">Ghép lớp hướng dẫn bởi đặc trưng, sử dụng không gian tiềm ẩn của Diffusion Models.</p>
+            </div>
+
+            <div class="mb-16 text-center">
+                 <h3 class="text-xl font-bold text-purple-400 mb-6">Tổng quan Quy trình FeatGLaC</h3>
+                 <div class="glass-card p-6 rounded-xl max-w-6xl mx-auto">
+                    <img src="images/13.png" alt="Overview FeatGLaC Algorithm" class="w-full rounded-lg">
+                    <p class="text-center text-sm text-gray-500 mt-3">Hình 3: Sơ đồ khối chi tiết thuật toán FeatGLaC</p>
+                </div>
+            </div>
+
+            <div class="mb-16">
+                <h3 class="text-xl font-bold text-purple-400 mb-6">Giai đoạn 1: Tiền xử lý dữ liệu</h3>
+                <div class="glass-card p-6 rounded-xl max-w-6xl mx-auto">
+                    <img src="images/3.png" alt="FeatGLaC Preprocessing" class="w-full rounded-lg">
+                    <p class="text-center text-sm text-gray-500 mt-3">Hình 4: Quy trình Null-text Inversion và trích xuất đặc trưng</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-bold text-purple-400 mb-6">Cơ chế Layering & Loss</h3>
+                    <div class="glass-card p-4 rounded-xl">
+                        <img src="images/5.jpg" alt="Layering Logic" class="w-full rounded-lg">
+                        <p class="text-center text-sm text-gray-500 mt-3">Hình 5: Cơ chế tính toán Guidance Loss trên U-Net Backbone</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-purple-400 mb-6">Quy trình tối ưu hóa</h3>
+                    <div class="glass-card p-4 rounded-xl">
+                        <img src="images/4.png" alt="Diffusion Optimization" class="w-full rounded-lg">
+                        <p class="text-center text-sm text-gray-500 mt-3">Hình 6: Quá trình khử nhiễu (Denoising) và tối ưu hóa Latent</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="architecture" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-white">Kiến trúc Hệ thống Big Data</h2>
+                <p class="mt-4 text-gray-400">Mô hình xử lý song song phân tán với Apache Spark</p>
+            </div>
+
+            <div class="space-y-16">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/3">
+                        <h3 class="text-2xl font-bold text-blue-400 mb-2">Pipeline DeGLaD</h3>
+                        <p class="text-gray-300">
+                            Mô hình MapReduce để phân tách lớp hình ảnh.
+                            Dữ liệu được chia nhỏ (Splitting), xử lý song song tại các Worker (Staging) để tạo ra các lớp Tiền cảnh/Hậu cảnh và lưu trữ vào S3.
+                        </p>
+                    </div>
+                    <div class="md:w-2/3 glass-card p-4 rounded-xl bg-white bg-opacity-5">
+                        <img src="images/7.png" alt="Spark Architecture DeGLaD" class="w-full rounded-lg">
+                        <p class="text-center text-sm text-gray-500 mt-2">Hình 7: Kiến trúc Spark DeGLaD</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row-reverse items-center gap-8">
+                    <div class="md:w-1/3 text-right">
+                        <h3 class="text-2xl font-bold text-purple-400 mb-2">Pipeline FeatGLaC</h3>
+                        <p class="text-gray-300">
+                            Hệ thống xử lý Latent song song.
+                            Các worker thực hiện khử nhiễu và xử lý vector tiềm ẩn, sau đó gom nhóm (Shuffling) để tái tạo ảnh hoàn chỉnh.
+                        </p>
+                    </div>
+                    <div class="md:w-2/3 glass-card p-4 rounded-xl bg-white bg-opacity-5">
+                        <img src="images/8.png" alt="Spark Architecture FeatGLaC" class="w-full rounded-lg">
+                        <p class="text-center text-sm text-gray-500 mt-2">Hình 8: Kiến trúc Spark FeatGLaC</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="data-results" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-white mb-12 text-center">Dữ liệu & Thực nghiệm</h2>
+
+            <div class="mb-16">
+                <h3 class="text-xl font-bold text-white mb-4"><i class="fas fa-database mr-2 text-yellow-500"></i> Bộ dữ liệu KITTI</h3>
+                <div class="glass-card p-2 rounded-xl">
+                    <img src="images/6.png" alt="KITTI Data Visualization" class="w-full rounded-lg">
+                    <p class="text-center text-sm text-gray-500 mt-2">Hình 9: Ảnh RGB đầu vào (trên) và Bản đồ độ sâu LiDAR tương ứng (dưới)</p>
+                </div>
+                <div class="mt-4 flex flex-wrap justify-center gap-4">
+                    <a href="https://www.kaggle.com/datasets/lthhongnhung/data-private" target="_blank" class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition duration-300">
+                        <i class="fab fa-kaggle mr-2"></i> Dataset Private
+                    </a>
+                    <a href="https://www.kaggle.com/datasets/joebuaa/kitti-depth-estimation-selection" target="_blank" class="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition duration-300">
+                        <i class="fab fa-kaggle mr-2"></i> Public Dataset 1
+                    </a>
+                    <a href="https://www.kaggle.com/datasets/artemmmtry/kitti-depth-prediction-evaluation" target="_blank" class="inline-flex items-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition duration-300">
+                        <i class="fab fa-kaggle mr-2"></i> Public Dataset 2
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div>
+                    <h3 class="text-lg font-bold text-green-400 mb-4">Kết quả phân tách lớp (DeGLaD)</h3>
+                    <div class="glass-card p-2 rounded-xl overflow-hidden h-full">
+                        <img src="images/9.png" alt="Result Table 1" class="w-full rounded-lg opacity-90 hover:opacity-100">
+                        <p class="text-xs text-center text-gray-500 mt-2">Hình 10: Tỷ lệ Tiền cảnh/Hậu cảnh và Độ sâu trung bình</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-green-400 mb-4">Thống kê đặc trưng (Up Block)</h3>
+                    <div class="glass-card p-2 rounded-xl overflow-hidden h-full">
+                        <img src="images/11.png" alt="Result Table Stats" class="w-full rounded-lg opacity-90 hover:opacity-100">
+                        <p class="text-xs text-center text-gray-500 mt-2">Hình 11: Bảng thống kê chi tiết các giá trị Mean/Std/Min/Max</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                 <h3 class="text-lg font-bold text-green-400 mb-4">Nhật ký thực thi (Output Logs)</h3>
+                 <div class="glass-card p-6 rounded-xl max-w-6xl mx-auto">
+                    <img src="images/12_KQ.png" alt="Output Execution Log" class="w-full rounded-lg">
+                    <p class="text-center text-sm text-gray-500 mt-2">Hình 12: Danh sách các file kết quả đã được xử lý và lưu trữ thành công</p>
+                 </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 border-t border-gray-800 py-8 text-center">
+        <p class="text-gray-500">Thuy Loi University - Big Data Project Group 7</p>
+        <p class="text-gray-600 text-sm mt-2">&copy; 2024 Depth-Aware Editing Research</p>
+    </footer>
+
+</body>
+</html>
